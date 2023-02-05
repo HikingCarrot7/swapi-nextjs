@@ -15,12 +15,12 @@ const Characters = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const paginatedResult = await getPaginatedCharacters(1);
+  const paginatedCharacters = await getPaginatedCharacters(1);
 
   return {
     props: {
-      characters: paginatedResult.results,
-      totalCharacters: paginatedResult.count,
+      characters: paginatedCharacters.results,
+      totalCharacters: paginatedCharacters.count,
       currentPage: 1,
     },
   };
