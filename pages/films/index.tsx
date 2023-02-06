@@ -1,3 +1,4 @@
+import FilmCard from '@components/films/FilmCard/FilmCard';
 import { getCharacterFilms } from '@services/film.service';
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 
@@ -9,7 +10,7 @@ const FilmsPage = ({
     <>
       <div>{characterName}</div>
       {films.map((film, index) => (
-        <div key={index}>{film.title}</div>
+        <FilmCard key={index} film={film} />
       ))}
     </>
   );
