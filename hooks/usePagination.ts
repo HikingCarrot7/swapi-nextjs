@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { PER_PAGE } from '../constants/pagination';
 
-interface PaginationParams {
+export interface PaginationParams {
   totalItems: number;
   currentPage: number;
   pageSize?: number;
