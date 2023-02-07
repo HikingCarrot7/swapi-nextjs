@@ -16,9 +16,14 @@ export const getPaginatedCharactersDTO = async (page: number) => {
   return result.data;
 };
 
-export const getCharacterDTO = async (
+export const getCharacterDTOById = async (
   characterId: number,
 ): Promise<CharacterDTO> => {
   const result = await api.get<CharacterDTO>(`/people/${characterId}`);
+  return result.data;
+};
+
+export const getCharacterDTOByUrl = async (characterUrl: string) => {
+  const result = await api.get<CharacterDTO>(characterUrl);
   return result.data;
 };
