@@ -1,31 +1,20 @@
 import CharacterCard from '@components/characters/CharacterCard/CharacterCard';
-import { usePagination } from '@hooks/usePagination';
+import Pagination from '@components/characters/Pagination/Pagination';
 import { Character } from '@models/Character';
-import { useRouter } from 'next/router';
 
 interface PaginatedCharacterCardsProps {
   characters: Character[];
   totalCharacters: number;
   currentPage: number;
+  onPageItemClicked: (page: string) => void;
 }
 
 const PaginatedCharacterCards = ({
   characters,
   totalCharacters,
   currentPage,
+  onPageItemClicked,
 }: PaginatedCharacterCardsProps) => {
-  const router = useRouter();
-  const { pagination } = usePagination({
-    totalItems: totalCharacters,
-    currentPage,
-  });
-
-  const onPageItemClicked = (page: string) => {
-    if (page !== '...') {
-      router.push(`/characters/${page}`);
-    }
-  };
-
   return (
     <div>
       <div>
@@ -33,11 +22,7 @@ const PaginatedCharacterCards = ({
           <CharacterCard key={index} character={character} />
         ))}
       </div>
-      {pagination.map((item, index) => (
-        <a key={index} onClick={() => onPageItemClicked(item)}>
-          {item}
-        </a>
-      ))}
+      <Pagination {...{ totalCharacters, currentPage, onPageItemClicked }} />
     </div>
   );
 };
