@@ -1,12 +1,13 @@
 import CharacterCard from '@components/characters/CharacterCard/CharacterCard';
 import Pagination from '@components/characters/Pagination/Pagination';
+import { CardGrid } from '@components/shared/CardGrid';
 import { Character } from '@models/Character';
 
 interface PaginatedCharacterCardsProps {
   characters: Character[];
   totalCharacters: number;
   currentPage: number;
-  onPageItemClicked: (page: string) => void;
+  onPageItemClicked: (page: number) => void;
 }
 
 const PaginatedCharacterCards = ({
@@ -16,14 +17,15 @@ const PaginatedCharacterCards = ({
   onPageItemClicked,
 }: PaginatedCharacterCardsProps) => {
   return (
-    <div>
-      <div>
+    <>
+      <Pagination {...{ totalCharacters, currentPage, onPageItemClicked }} />
+      <CardGrid>
         {characters.map((character, index) => (
           <CharacterCard key={index} character={character} />
         ))}
-      </div>
+      </CardGrid>
       <Pagination {...{ totalCharacters, currentPage, onPageItemClicked }} />
-    </div>
+    </>
   );
 };
 

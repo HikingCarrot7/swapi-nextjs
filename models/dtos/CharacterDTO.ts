@@ -1,7 +1,7 @@
 export interface CharacterDTO {
   name: string;
-  height: string;
-  mass: string;
+  height: number;
+  mass: number;
   hair_color: string;
   skin_color: string;
   eye_color: string;
