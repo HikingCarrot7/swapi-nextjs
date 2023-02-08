@@ -1,4 +1,7 @@
 import FilmCard from '@components/films/FilmCard/FilmCard';
+import { CardGrid } from '@components/shared/CardGrid';
+import { Container } from '@components/shared/Container';
+import { Title } from '@components/shared/Title';
 import { getCharacterFilms } from '@services/film.service';
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 
@@ -7,12 +10,16 @@ const FilmsPage = ({
   films,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
-    <>
-      <div>{characterName}</div>
-      {films.map((film, index) => (
-        <FilmCard key={index} film={film} />
-      ))}
-    </>
+    <Container>
+      <Title>
+        Films <span className="font-bold">{characterName}</span> has appeared in
+      </Title>
+      <CardGrid>
+        {films.map((film, index) => (
+          <FilmCard key={index} film={film} />
+        ))}
+      </CardGrid>
+    </Container>
   );
 };
 
