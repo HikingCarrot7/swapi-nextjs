@@ -1,4 +1,5 @@
 import PaginatedCharacterCards from '@components/characters/PaginatedCharacterCards/PaginatedCharacterCards';
+import { Container } from '@components/shared/Container';
 import { getPaginatedCharacters } from '@services/character.service';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/router';
@@ -15,9 +16,11 @@ const Characters = ({
   };
 
   return (
-    <PaginatedCharacterCards
-      {...{ characters, totalCharacters, currentPage, onPageItemClicked }}
-    />
+    <Container>
+      <PaginatedCharacterCards
+        {...{ characters, totalCharacters, currentPage, onPageItemClicked }}
+      />
+    </Container>
   );
 };
 

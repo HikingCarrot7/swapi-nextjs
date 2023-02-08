@@ -1,4 +1,5 @@
 import PaginatedCharacterCards from '@components/characters/PaginatedCharacterCards/PaginatedCharacterCards';
+import { Container } from '@components/shared/Container';
 import { getPaginatedCharacters } from '@services/character.service';
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/router';
@@ -15,9 +16,11 @@ const PaginatedPage = ({
   };
 
   return (
-    <PaginatedCharacterCards
-      {...{ characters, totalCharacters, currentPage, onPageItemClicked }}
-    />
+    <Container>
+      <PaginatedCharacterCards
+        {...{ characters, totalCharacters, currentPage, onPageItemClicked }}
+      />
+    </Container>
   );
 };
 
@@ -45,6 +48,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
       totalCharacters: paginatedCharacters.count,
       currentPage: page,
     },
+    revalidate: 60 * 60 * 24, // <--- ISR cache: once a day
   };
 };
 
