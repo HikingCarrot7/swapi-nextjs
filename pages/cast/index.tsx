@@ -12,7 +12,7 @@ const CastPage = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const router = useRouter();
 
-  const onPageItemClicked = (page: string) => {
+  const onPageItemClicked = (page: number) => {
     router.push(`/cast?filmId=${filmId}&page=${page}`);
   };
 

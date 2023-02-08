@@ -6,7 +6,7 @@ interface PaginatedCharacterCardsProps {
   characters: Character[];
   totalCharacters: number;
   currentPage: number;
-  onPageItemClicked: (page: string) => void;
+  onPageItemClicked: (page: number) => void;
 }
 
 const PaginatedCharacterCards = ({

@@ -10,7 +10,7 @@ const PaginatedPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
 
-  const onPageItemClicked = (page: string) => {
+  const onPageItemClicked = (page: number) => {
     router.push(`/characters/${page}`);
   };
 
