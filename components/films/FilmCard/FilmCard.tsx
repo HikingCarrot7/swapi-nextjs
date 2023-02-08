@@ -7,7 +7,7 @@ interface FilmCardProps {
   film: Film;
 }
 
-const FilmCard = ({ film }: FilmCardProps) => {
+export const FilmCard = ({ film }: FilmCardProps) => {
   return (
     <Card>
       <Image
@@ -28,5 +28,3 @@ const FilmCard = ({ film }: FilmCardProps) => {
     </Card>
   );
 };
-
-export default FilmCard;
