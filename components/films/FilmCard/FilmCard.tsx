@@ -1,6 +1,7 @@
+import { Card } from '@components/shared/Card';
+import { StyledLink } from '@components/shared/StyledLink';
 import { Film } from '@models/Film';
 import Image from 'next/image';
-import Link from 'next/link';
 
 interface FilmCardProps {
   film: Film;
@@ -8,19 +9,23 @@ interface FilmCardProps {
 
 const FilmCard = ({ film }: FilmCardProps) => {
   return (
-    <>
+    <Card>
       <Image
         src={`/images/${film.title}.jpg`}
         alt={film.title}
         width={150}
         height={300}
+        className="mx-auto"
       />
-      <h2 className="text-3xl">{film.title}</h2>
-      <div>{film.openingCrawl}</div>
-      <div>{film.producer}</div>
-      <Link href={`/cast/filmId=${film.id}`}>Film cast</Link>
-      <hr />
-    </>
+      <Card.Title title={film.title} />
+      <Card.Content>
+        <p className="text-gray-700 text-base">{film.openingCrawl}</p>
+        <Card.Property label="Producer" value={film.producer} />
+        <Card.Property label="Director" value={film.director} />
+        <Card.Property label="Release date" value={film.releaseDate} />
+        <StyledLink href={`/cast?filmId=${film.id}`} label="Film cast" />
+      </Card.Content>
+    </Card>
   );
 };
 
