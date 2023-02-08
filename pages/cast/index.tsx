@@ -1,4 +1,6 @@
 import PaginatedCharacterCards from '@components/characters/PaginatedCharacterCards/PaginatedCharacterCards';
+import { Container } from '@components/shared/Container';
+import { Title } from '@components/shared/Title';
 import { getCastOfFilm } from '@services/cast.service';
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { useRouter } from 'next/router';
@@ -17,12 +19,15 @@ const CastPage = ({
   };
 
   return (
-    <>
-      <div>{filmTitle}</div>
+    <Container>
+      <Title>
+        Characters that appeared in the film{' '}
+        <span className="font-bold">{filmTitle}</span>
+      </Title>
       <PaginatedCharacterCards
         {...{ characters, totalCharacters, currentPage, onPageItemClicked }}
       />
-    </>
+    </Container>
   );
 };
 
