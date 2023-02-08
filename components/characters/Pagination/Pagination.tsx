@@ -6,7 +6,7 @@ interface PaginationProps {
   onPageItemClicked: (page: number) => void;
 }
 
-const Pagination = ({
+export const Pagination = ({
   totalCharacters,
   currentPage,
   onPageItemClicked,
@@ -90,5 +90,3 @@ const PaginationItem = ({
     </li>
   );
 };
-
-export default Pagination;

@@ -1,5 +1,5 @@
-import CharacterCard from '@components/characters/CharacterCard/CharacterCard';
-import Pagination from '@components/characters/Pagination/Pagination';
+import { CharacterCard } from '@components/characters/CharacterCard';
+import { Pagination } from '@components/characters/Pagination';
 import { CardGrid } from '@components/shared/CardGrid';
 import { Character } from '@models/Character';
 
@@ -10,7 +10,7 @@ interface PaginatedCharacterCardsProps {
   onPageItemClicked: (page: number) => void;
 }
 
-const PaginatedCharacterCards = ({
+export const PaginatedCharacterCards = ({
   characters,
   totalCharacters,
   currentPage,
@@ -28,5 +28,3 @@ const PaginatedCharacterCards = ({
     </>
   );
 };
-
-export default PaginatedCharacterCards;

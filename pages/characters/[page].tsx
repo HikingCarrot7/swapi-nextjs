@@ -1,4 +1,4 @@
-import PaginatedCharacterCards from '@components/characters/PaginatedCharacterCards/PaginatedCharacterCards';
+import { PaginatedCharacterCards } from '@components/characters/PaginatedCharacterCards';
 import { Container } from '@components/shared/Container';
 import { getPaginatedCharacters } from '@services/character.service';
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';

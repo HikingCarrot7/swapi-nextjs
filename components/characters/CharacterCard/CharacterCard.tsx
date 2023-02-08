@@ -7,7 +7,7 @@ interface CharacterCardProps {
   character: Character;
 }
 
-const CharacterCard = ({ character }: CharacterCardProps) => {
+export const CharacterCard = ({ character }: CharacterCardProps) => {
   return (
     <Card>
       <Image
@@ -30,5 +30,3 @@ const CharacterCard = ({ character }: CharacterCardProps) => {
     </Card>
   );
 };
-
-export default CharacterCard;
