@@ -8,7 +8,7 @@ Debido a que la información de la API no cambia, se consideró que sería buena
 idea generar toda la página de forma estática. Sin embargo, se dieron los
 siguientes inconvenientes:
 
-- La página retorna los resultados paginados y, aunque es posible saber el
+- La API retorna los resultados paginados y, aunque es posible saber el
   número total de páginas, no se consideró buena idea tratar de generar todas
   las páginas `at build time`. Para este caso solamente se tienen 9 páginas,
   pero se quiso "considerar" que este número de páginas es muy grande.
@@ -22,7 +22,7 @@ siguientes inconvenientes:
 
 - También se tiene ganas de hacer uso de la funcionalidad SSR de NextJs.
 
-Considerando las observaciones anteriores se determinó lo siguiente
+Considerando las observaciones anteriores se determinó lo siguiente:
 
 - Las primeras 5 páginas de los personajes están generadas de forma estática.
 
